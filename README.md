@@ -5,6 +5,11 @@ I had a need to read values from nested hashes, and I was tired of doing "dig/fe
 
 So, initial idea was to "query" Hash/Array similiar how you doing it in the CSS but it was transformed a little.
 
+Right now I've extracted my code into this gem and now I can do the following:
+
+Instead of `h.fetch(:projects, []).map{|e| e[:name]}` I can just write `h.fpath('projects.name')`. Even with such simple example you can see that code is much readable.
+And it was a nice win for my project and at least I'm happy with it :)
+
 Check examples below to see if it can be useful for you too.
 
 ## Demo & Usage
