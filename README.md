@@ -1,18 +1,26 @@
 # Hash/Array Extenstion
 
 The idea of this gem is to simplify fetching records from the Hash/Array.
-I had a need to read values from nested hashes, and I was tired of doing "dig/fetch", for a complex hash my code was very ugly.
+I had a need to read values from the complex hashes, and I was tired of doing lots of "dig/fetch". Code was just ugly.
 
-So, initial idea was to "query" Hash/Array similiar how you doing it in the CSS but it was transformed a little.
+So, initial idea was to create a way to "query" Hash/Array similiar how we are querying CSS, but later idea was changed a little.
 
-Right now I've extracted my code into this gem and now I can do the following:
+Right now I've extracted my code into this gem and now can do the following:
 
-Instead of `h.fetch(:projects, []).map{|e| e[:name]}` I can just write `h.fpath('projects.name')`. Even with such simple example you can see that code is much readable.
-And it was a nice win for my project and at least I'm happy with it :)
+Instead of:
+```ruby
+h.fetch(:projects, []).map{|e| e[:name]}
+```
+I can just write:
+```ruby
+h.fpath('projects.name')
+```
 
-Check examples below to see if it can be useful for you too.
+Even with a such simple example you can see that the code is much readable. It was a nice win for my project and at least I'm very happy with it :)
 
-## Demo & Usage
+Check more examples below to see if it can be useful for you too.
+
+## More Complex Example
 
 ```ruby
     # -----
