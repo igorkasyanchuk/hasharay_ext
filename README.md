@@ -16,7 +16,8 @@ I can just write:
 h.fpath('projects.name')
 ```
 
-Even with a such simple example you can see that the code is much readable. It was a nice win for my project and at least I'm very happy with it :)
+Even with a such simple example you can see that the code is much readable.
+It was a nice win for my project and at least I'm very happy with it :)
 
 Check more examples below to see if it can be useful for you too.
 
@@ -74,6 +75,8 @@ Check more examples below to see if it can be useful for you too.
 `fpath!` or `fetch_path!` working same way as `fpath` but raise error is some key is not available.
 
 Available options: `def fpath(key, strict: false, separator: ".", default: nil)`.
+
+Note that keys in the returned hash are stringified.
 
 More examples available in the specs.
 
