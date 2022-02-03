@@ -12,7 +12,6 @@ Gem::Specification.new do |spec|
   spec.description = "Useful method to fetch data from complex hashes and arrays"
   spec.homepage = "https://github.com/igorkasyanchuk/hasharay_ext"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
 

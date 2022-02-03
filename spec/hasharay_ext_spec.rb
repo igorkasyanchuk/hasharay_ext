@@ -31,12 +31,9 @@ RSpec.describe HasharayExt do
     expect { c.fetch_path!("user.last_name") }.to raise_error(ArgumentError)
   end
 
-  # dig ...
-  # fetch(key, {default})
-
   it "example.2" do
     c = {
-      name: "igor",
+      name: "john",
       dob: Date.today,
       projects: [
         {name: "A", locations: ["Kyiv"]},
@@ -70,7 +67,7 @@ RSpec.describe HasharayExt do
     expect(c.fpath("not_exising_name")).to eq(nil)
     expect(c.fpath("not_exising_projects.not_exising_name")).to eq(nil)
     expect(c.fpath("not_exising_projects.not_exising_name", default: 42)).to eq(42)
-    expect(c.fpath("name")).to eq("igor")
+    expect(c.fpath("name")).to eq("john")
     expect(c.fpath("projects.name")).to eq(["A", "B"])
     expect(c.fpath("projects.locations")).to eq([["Kyiv"], ["Paris", "Berlin"]])
     expect(c.fpath!("position.company.other.summaries")).to eq([{"level" => "middle", "worker" => "John"}, {"level" => "senior", "worker" => "Bob"}])
