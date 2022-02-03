@@ -1,5 +1,8 @@
 # Hash/Array Extenstion
 
+[![RailsJazz](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/my_other.svg?raw=true)](https://www.railsjazz.com)
+[![https://www.patreon.com/igorkasyanchuk](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/patron.svg?raw=true)](https://www.patreon.com/igorkasyanchuk)
+
 The idea of this gem is to simplify fetching records from the Hash/Array.
 I had a need to read values from the complex hashes, and I was tired of doing lots of "dig/fetch". Code was just ugly.
 
