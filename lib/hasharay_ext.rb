@@ -17,17 +17,17 @@ module HasharayExt
     attr_reader :data, :strict, :separator, :default
 
     def initialize(data, strict: true, separator: ".", default: nil)
-      @data      = data
-      @strict    = strict
+      @data = data
+      @strict = strict
       @separator = separator
-      @default   = default
+      @default = default
     end
 
     def get(path)
       raise ArgumentError.new("Not specified key") if path.blank?
 
-      object     = data.clone
-      tree       = path.split(separator)
+      object = data.clone
+      tree = path.split(separator)
 
       tree.each_with_index do |raw, index|
         raise ArgumentError.new("Not specified key") if raw.blank?
@@ -41,7 +41,9 @@ module HasharayExt
               fetch(object, keyword)
             end.transpose
           when Hash
-            return keywords.inject({}) {|res, e| res[e] = fetch(object, e); res}
+            return keywords.each_with_object({}) { |e, res|
+                     res[e] = fetch(object, e)
+                   }
           end
         else
           # every key
@@ -52,6 +54,7 @@ module HasharayExt
     end
 
     private
+
     def fetch(object, key)
       case object
       when Hash
@@ -68,17 +71,16 @@ module HasharayExt
     end
 
     def invalid_key!(key, object)
-      Proc.new { raise(ArgumentError.new("Key `#{key}` not found on attribute ##{object} strict: #{strict}, separator: #{separator}")) }
+      proc { raise(ArgumentError.new("Key `#{key}` not found on attribute ##{object} strict: #{strict}, separator: #{separator}")) }
     end
   end
-
 end
 
 class Array
   include HasharayExt::Interface
 
-  def fpath(key, strict: false, separator: '.', default: nil)
-    self.map do |e|
+  def fpath(key, strict: false, separator: ".", default: nil)
+    map do |e|
       e.present? ? e.fpath(key, strict: strict, separator: separator, default: default) : default
     end
   end
@@ -89,7 +91,7 @@ class Hash
   include HasharayExt::Interface
 
   def fpath(path, strict: false, separator: ".", default: nil)
-    HasharayExt::Logic.new(self.clone.deep_stringify_keys, strict: strict, separator: separator, default: default).get(path)
+    HasharayExt::Logic.new(clone.deep_stringify_keys, strict: strict, separator: separator, default: default).get(path)
   end
   alias_method :fetch_path, :fpath
 end
