@@ -76,6 +76,8 @@ Check more examples below to see if it can be useful for you too.
 
 Available options: `def fpath(key, strict: false, separator: ".", default: nil)`.
 
+You can also return multiple values, pay attention to the `hash.fpath("position.company.team+office")`. Note that "+" works only for the last key in the queried "path".
+
 Note that keys in the returned hash are stringified.
 
 More examples available in the specs.
