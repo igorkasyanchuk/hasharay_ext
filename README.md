@@ -120,3 +120,6 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/igorka
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+[<img src="https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/more_gems.png?raw=true"
+/>](https://www.railsjazz.com/?utm_source=github&utm_medium=bottom&utm_campaign=hasharay_ext)
